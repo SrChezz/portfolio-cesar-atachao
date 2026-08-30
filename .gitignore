@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+web/node_modules/
+
+# Build output
+web/dist/
+dist/
+build/
+
+# CDK
+infra/.venv/
+infra/cdk.out/
+infra/.pytest_cache/
+**/__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.local
+*.local
+
+# Editor / OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
