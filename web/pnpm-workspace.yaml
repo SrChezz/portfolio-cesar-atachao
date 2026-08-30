@@ -1,0 +1,6 @@
+# pnpm configuration.
+# allowBuilds: explicitly allow-list packages permitted to run install/build
+# scripts. pnpm blocks all such scripts by default (supply-chain safety);
+# esbuild needs its script to build its native binary for Vite.
+allowBuilds:
+  esbuild: true
