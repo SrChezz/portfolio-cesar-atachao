@@ -1,0 +1,311 @@
+{
+  "repos": [
+    {
+      "name": "morris-opazo-clone",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/morris-opazo-clone",
+      "language": "Astro",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2026-08-31T01:30:37Z"
+    },
+    {
+      "name": "mine-3d-demo-20260830190334",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/mine-3d-demo-20260830190334",
+      "language": "JavaScript",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2026-08-31T00:04:13Z"
+    },
+    {
+      "name": "mine-3d-demo",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/mine-3d-demo",
+      "language": "JavaScript",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2026-08-30T23:55:24Z"
+    },
+    {
+      "name": "mo-cost-tracker",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/mo-cost-tracker",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2026-07-20T14:34:18Z"
+    },
+    {
+      "name": "cdk-demo",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/cdk-demo",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2026-06-24T21:53:47Z"
+    },
+    {
+      "name": "learn_iceberg",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/learn_iceberg",
+      "language": null,
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2026-02-13T05:47:53Z"
+    },
+    {
+      "name": "yuyariy",
+      "owner": "catachao",
+      "description": null,
+      "url": "https://github.com/catachao/yuyariy",
+      "language": "TypeScript",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2025-10-07T21:59:01Z"
+    },
+    {
+      "name": "portafolio",
+      "owner": "srchezz",
+      "description": "Portafolio ",
+      "url": "https://github.com/SrChezz/portafolio",
+      "language": "HTML",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2025-09-26T04:45:50Z"
+    },
+    {
+      "name": "aws-data-ingestion-restart",
+      "owner": "catachao",
+      "description": null,
+      "url": "https://github.com/catachao/aws-data-ingestion-restart",
+      "language": "Python",
+      "stars": 1,
+      "topics": [],
+      "updatedAt": "2025-09-25T00:42:48Z"
+    },
+    {
+      "name": "srchezz",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/srchezz",
+      "language": null,
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2025-09-25T00:11:29Z"
+    },
+    {
+      "name": "iot-agro",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/iot-agro",
+      "language": "Vue",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2025-06-06T01:56:12Z"
+    },
+    {
+      "name": "lsp-machine-learning-model",
+      "owner": "srchezz",
+      "description": null,
+      "url": "https://github.com/SrChezz/lsp-machine-learning-model",
+      "language": "Python",
+      "stars": 0,
+      "topics": [],
+      "updatedAt": "2025-05-30T08:26:27Z"
+    }
+  ],
+  "badges": [
+    {
+      "id": "1e45fe75-62fd-4dec-a9b1-f02b58abb57f",
+      "name": "AWS SBG Leader Badge",
+      "issuer": "AWS Community",
+      "image": "https://images.credly.com/images/1e8d730b-58fc-48b8-be32-cc8758f90229/blob",
+      "verifyUrl": "https://www.credly.com/badges/1e45fe75-62fd-4dec-a9b1-f02b58abb57f",
+      "issuedAt": "2026-07-15"
+    },
+    {
+      "id": "e9fb5874-8e7c-4092-8914-996882b806fa",
+      "name": "AWS Certified Developer – Associate",
+      "issuer": "Amazon Web Services Training and Certification",
+      "image": "https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/image.png",
+      "verifyUrl": "https://www.credly.com/badges/e9fb5874-8e7c-4092-8914-996882b806fa",
+      "issuedAt": "2026-07-12"
+    },
+    {
+      "id": "b8df62c6-5c34-4377-8eb6-4db3dcd4e864",
+      "name": "AWS Partner: Migration Acceleration Program Authorized - Training Badge",
+      "issuer": "Amazon Web Services Training and Certification",
+      "image": "https://images.credly.com/images/45563d37-2cd2-48b2-9292-f27d68594944/blob",
+      "verifyUrl": "https://www.credly.com/badges/b8df62c6-5c34-4377-8eb6-4db3dcd4e864",
+      "issuedAt": "2026-06-01"
+    },
+    {
+      "id": "a3d7fa28-f103-415b-bc48-c6b59ab21e53",
+      "name": "AWS Partner: Migration Essentials - Training Badge",
+      "issuer": "Amazon Web Services Training and Certification",
+      "image": "https://images.credly.com/images/08de8f6d-7b12-4988-b758-cfc66b601f7d/blob",
+      "verifyUrl": "https://www.credly.com/badges/a3d7fa28-f103-415b-bc48-c6b59ab21e53",
+      "issuedAt": "2026-05-20"
+    },
+    {
+      "id": "35e89941-1922-414b-b343-d58e3a761eb3",
+      "name": "AWS Certified Data Engineer – Associate",
+      "issuer": "Amazon Web Services Training and Certification",
+      "image": "https://images.credly.com/images/e5c85d7f-4e50-431e-b5af-fa9d9b0596e7/image.png",
+      "verifyUrl": "https://www.credly.com/badges/35e89941-1922-414b-b343-d58e3a761eb3",
+      "issuedAt": "2026-05-02"
+    },
+    {
+      "id": "531f72f4-c8a2-4881-9bbe-13719ef7048a",
+      "name": "AWS Certified AI Practitioner",
+      "issuer": "Amazon Web Services Training and Certification",
+      "image": "https://images.credly.com/images/4d4693bb-530e-4bca-9327-de07f3aa2348/image.png",
+      "verifyUrl": "https://www.credly.com/badges/531f72f4-c8a2-4881-9bbe-13719ef7048a",
+      "issuedAt": "2026-04-25"
+    },
+    {
+      "id": "7c7f72d8-f8c2-4407-a39f-7bc873285158",
+      "name": "AWS Cloud Club Captain",
+      "issuer": "AWS Community",
+      "image": "https://images.credly.com/images/54fdb971-fd75-4c35-88d3-a26abf11dfc8/image.png",
+      "verifyUrl": "https://www.credly.com/badges/7c7f72d8-f8c2-4407-a39f-7bc873285158",
+      "issuedAt": "2025-11-20"
+    },
+    {
+      "id": "5c09ede3-1118-42c1-bcd7-8e9c20dea463",
+      "name": "Associate Cloud Engineer Certification",
+      "issuer": "Google Cloud",
+      "image": "https://images.credly.com/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png",
+      "verifyUrl": "https://www.credly.com/badges/5c09ede3-1118-42c1-bcd7-8e9c20dea463",
+      "issuedAt": "2025-09-16"
+    },
+    {
+      "id": "875c942f-6b2b-4ed9-a31a-1275ba9a61dd",
+      "name": "AWS Certified Solutions Architect – Associate",
+      "issuer": "Amazon Web Services Training and Certification",
+      "image": "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+      "verifyUrl": "https://www.credly.com/badges/875c942f-6b2b-4ed9-a31a-1275ba9a61dd",
+      "issuedAt": "2025-09-12"
+    },
+    {
+      "id": "6102ce0e-1bb8-4649-8b09-914708ca27ee",
+      "name": "Build a Secure Google Cloud Network Skill Badge",
+      "issuer": "Google Cloud",
+      "image": "https://images.credly.com/images/e1131ae3-4a52-4af1-9801-b7853767cf79/image.png",
+      "verifyUrl": "https://www.credly.com/badges/6102ce0e-1bb8-4649-8b09-914708ca27ee",
+      "issuedAt": "2025-09-02"
+    },
+    {
+      "id": "97c3311c-6a60-49be-b442-1bd53125ae51",
+      "name": "Build Infrastructure with Terraform on Google Cloud Skill Badge",
+      "issuer": "Google Cloud",
+      "image": "https://images.credly.com/images/b18154fb-9bd3-47e5-a6f1-554be512947d/image.png",
+      "verifyUrl": "https://www.credly.com/badges/97c3311c-6a60-49be-b442-1bd53125ae51",
+      "issuedAt": "2025-09-02"
+    },
+    {
+      "id": "9e09fc8e-cf9b-4fdd-86e5-4a8ffbcaa681",
+      "name": "Develop Your Google Cloud Network Skill Badge",
+      "issuer": "Google Cloud",
+      "image": "https://images.credly.com/images/b126c61c-4781-4f03-9b2b-062963003abf/image.png",
+      "verifyUrl": "https://www.credly.com/badges/9e09fc8e-cf9b-4fdd-86e5-4a8ffbcaa681",
+      "issuedAt": "2025-09-02"
+    },
+    {
+      "id": "8e5ff402-f3fe-4a29-8ef5-59f02973f910",
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services Training and Certification",
+      "image": "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+      "verifyUrl": "https://www.credly.com/badges/8e5ff402-f3fe-4a29-8ef5-59f02973f910",
+      "issuedAt": "2025-07-08"
+    },
+    {
+      "id": "73d6f887-6518-418c-a729-6bb50bdd557d",
+      "name": "CCNA",
+      "issuer": "Cisco",
+      "image": "https://images.credly.com/images/683783d8-eaac-4c37-a14d-11bd8a36321d/ccna_600.png",
+      "verifyUrl": "https://www.credly.com/badges/73d6f887-6518-418c-a729-6bb50bdd557d",
+      "issuedAt": "2025-07-07"
+    },
+    {
+      "id": "b863f3a4-0014-4753-8c23-e87f78050d41",
+      "name": "AWS re/Start Graduate",
+      "issuer": "Amazon Web Services Training and Certification",
+      "image": "https://images.credly.com/images/44e2c252-5d19-4574-9646-005f7225bf53/image.png",
+      "verifyUrl": "https://www.credly.com/badges/b863f3a4-0014-4753-8c23-e87f78050d41",
+      "issuedAt": "2025-07-02"
+    },
+    {
+      "id": "c2b0cd7e-739a-48ce-9504-2da34f7b6cda",
+      "name": "Google Cybersecurity Professional Certificate V2",
+      "issuer": "Coursera",
+      "image": "https://images.credly.com/images/0bf0f2da-a699-4c82-82e2-56dcf1f2e1c7/image.png",
+      "verifyUrl": "https://www.credly.com/badges/c2b0cd7e-739a-48ce-9504-2da34f7b6cda",
+      "issuedAt": "2025-05-17"
+    },
+    {
+      "id": "2c1ee587-de60-4631-a907-570b5a96a096",
+      "name": "Google IT Support Professional Certificate (v2)",
+      "issuer": "Coursera",
+      "image": "https://images.credly.com/images/fb97a12f-c0f1-4f37-9b7d-4a830199fe84/GCC_badge_IT_Support_1000x1000.png",
+      "verifyUrl": "https://www.credly.com/badges/2c1ee587-de60-4631-a907-570b5a96a096",
+      "issuedAt": "2025-05-17"
+    },
+    {
+      "id": "78438e04-238c-4af4-8558-3202c8402b17",
+      "name": "IBM SkillsBuild Cybersecurity Certificate",
+      "issuer": "IBM SkillsBuild",
+      "image": "https://images.credly.com/images/c1ed7bae-5661-4522-8a03-a5064895952d/image.png",
+      "verifyUrl": "https://www.credly.com/badges/78438e04-238c-4af4-8558-3202c8402b17",
+      "issuedAt": "2025-05-05"
+    },
+    {
+      "id": "86577e5b-3374-4f05-8793-b9e0122de2f8",
+      "name": "Microsoft Certified: Azure AI Fundamentals",
+      "issuer": "Microsoft",
+      "image": "https://images.credly.com/images/4136ced8-75d5-4afb-8677-40b6236e2672/azure-ai-fundamentals-600x600.png",
+      "verifyUrl": "https://www.credly.com/badges/86577e5b-3374-4f05-8793-b9e0122de2f8",
+      "issuedAt": "2025-02-28"
+    },
+    {
+      "id": "7145b8b0-92b6-44a1-bf92-c1b344943745",
+      "name": "GitHub Foundations",
+      "issuer": "GitHub",
+      "image": "https://images.credly.com/images/024d0122-724d-4c5a-bd83-cfe3c4b7a073/image.png",
+      "verifyUrl": "https://www.credly.com/badges/7145b8b0-92b6-44a1-bf92-c1b344943745",
+      "issuedAt": "2025-01-13"
+    },
+    {
+      "id": "ab3b3f68-3b7c-4095-aef0-4a3d53e9bb0b",
+      "name": "Microsoft Office Specialist: Microsoft Excel Expert (Office 2019)",
+      "issuer": "Microsoft",
+      "image": "https://images.credly.com/images/7a1fa340-f261-4e69-b41b-b27ffaece00f/MOS_Excel_Expert6.png",
+      "verifyUrl": "https://www.credly.com/badges/ab3b3f68-3b7c-4095-aef0-4a3d53e9bb0b",
+      "issuedAt": "2025-01-12"
+    },
+    {
+      "id": "961906fc-c45d-4c2b-bada-af13e6534410",
+      "name": "IBM Z Xplore - Advanced",
+      "issuer": "IBM",
+      "image": "https://images.credly.com/images/9dde9b48-6cec-4bc4-ab33-ffeac5c681c3/image.png",
+      "verifyUrl": "https://www.credly.com/badges/961906fc-c45d-4c2b-bada-af13e6534410",
+      "issuedAt": "2024-08-19"
+    },
+    {
+      "id": "c8fc2299-7f49-4316-8bcc-0e7310986cf5",
+      "name": "PMI Project Management Ready™",
+      "issuer": "Project Management Institute",
+      "image": "https://images.credly.com/images/650208e5-851e-45d3-9ee9-cea899428427/blob",
+      "verifyUrl": "https://www.credly.com/badges/c8fc2299-7f49-4316-8bcc-0e7310986cf5",
+      "issuedAt": "2024-08-15"
+    }
+  ],
+  "generatedAt": "2026-08-31T23:19:03.267Z"
+}

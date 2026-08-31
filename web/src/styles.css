@@ -977,3 +977,348 @@ a:focus-visible,
     gap: 2px;
   }
 }
+
+/* ==================== Top navigation ==================== */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 14px 24px;
+  background: rgba(10, 15, 22, 0.72);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+
+.topnav-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+.topnav-brand:hover {
+  color: var(--ink);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #12100a;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.brand-name {
+  font-size: 0.95rem;
+}
+
+.topnav-links {
+  display: flex;
+  gap: 6px;
+}
+
+.topnav-link {
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  transition: color 0.15s var(--ease), background 0.15s var(--ease);
+}
+
+.topnav-link:hover {
+  color: var(--ink);
+  background: var(--bg-elev);
+}
+
+.topnav-link.is-active {
+  color: var(--accent);
+  background: var(--bg-elev);
+}
+
+@media (max-width: 480px) {
+  .brand-name {
+    display: none;
+  }
+}
+
+/* ==================== Generic page (proyectos, blog) ==================== */
+.page {
+  padding: 56px 0 40px;
+}
+
+.page-head {
+  padding-bottom: 36px;
+  margin-bottom: 44px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.2rem, 7vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 14px 0 0;
+  background: linear-gradient(120deg, var(--ink) 45%, var(--accent-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.page-lead {
+  color: var(--ink-dim);
+  max-width: 62ch;
+  margin: 14px 0 0;
+}
+
+.page-block {
+  margin-bottom: 56px;
+}
+
+/* ==================== Repo grid (GitHub) ==================== */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.repo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid var(--line-bright);
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-elev));
+  transition: transform 0.22s var(--ease), border-color 0.22s var(--ease),
+    box-shadow 0.22s var(--ease);
+}
+
+.repo-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 16px 34px -22px rgba(235, 165, 82, 0.4);
+}
+
+.repo-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.repo-icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.repo-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.repo-ext {
+  margin-left: auto;
+  color: var(--ink-faint);
+  flex-shrink: 0;
+  transition: transform 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.repo-card:hover .repo-ext {
+  transform: translate(3px, -3px);
+  color: var(--accent);
+}
+
+.repo-desc {
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.repo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 16px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+}
+
+.repo-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.lang-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.repo-owner {
+  margin-left: auto;
+}
+
+/* ==================== Credly badge grid ==================== */
+.badge-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 20px 14px;
+}
+
+.badge-item a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  transition: transform 0.22s var(--ease), background 0.22s var(--ease);
+}
+
+.badge-item a:hover {
+  transform: translateY(-4px);
+  background: var(--bg-elev);
+}
+
+.badge-item img {
+  width: 88px;
+  height: 88px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+}
+
+.badge-name {
+  font-size: 0.76rem;
+  line-height: 1.35;
+  color: var(--ink-dim);
+}
+
+.badge-item a:hover .badge-name {
+  color: var(--ink);
+}
+
+/* ==================== Blog ==================== */
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 18px;
+}
+
+.post-card {
+  display: block;
+  padding: 24px;
+  border: 1px solid var(--line-bright);
+  border-radius: 12px;
+  background: linear-gradient(180deg, var(--bg-card), var(--bg-elev));
+  transition: transform 0.22s var(--ease), border-color 0.22s var(--ease);
+}
+
+a.post-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  margin-bottom: 12px;
+}
+
+.post-meta span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.post-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0 0 10px;
+}
+
+.post-ext {
+  color: var(--ink-faint);
+}
+
+.post-excerpt {
+  color: var(--ink-dim);
+  margin: 0 0 16px;
+}
+
+.blog-empty {
+  text-align: center;
+  padding: 56px 24px;
+  border: 1px dashed var(--line-bright);
+  border-radius: 16px;
+  background: var(--bg-elev);
+}
+
+.blog-empty-icon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border-radius: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--line-bright);
+  color: var(--accent);
+}
+
+.blog-empty h2 {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  margin: 0 0 10px;
+}
+
+.blog-empty p {
+  color: var(--ink-dim);
+  max-width: 48ch;
+  margin: 0 auto 24px;
+}
+
+/* Reduced motion for the new interactive cards */
+@media (prefers-reduced-motion: reduce) {
+  .repo-card:hover,
+  .repo-card:hover .repo-ext,
+  .badge-item a:hover,
+  a.post-card:hover {
+    transform: none;
+  }
+}

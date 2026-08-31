@@ -25,6 +25,7 @@ import {
   certifications,
   extracurricular,
 } from '../data/profile.js'
+import generated from '../data/generated.json'
 import { useReveal } from '../hooks/useReveal.js'
 
 function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest }) {
@@ -184,34 +185,53 @@ export default function Home() {
           Icon={BadgeCheck}
           note={
             <>
-              {certifications.length} certificaciones verificadas ·{' '}
+              {(generated.badges?.length || certifications.length)} certificaciones
+              verificadas ·{' '}
               <a href={profile.links.credly} target="_blank" rel="noreferrer">
                 Credly
               </a>
             </>
           }
         >
-          {['AWS', 'Google Cloud', 'Otros'].map((g, gi) => {
-            const items = certifications.filter((c) => c.group === g)
-            if (items.length === 0) return null
-            return (
-              <Reveal key={g} className="cert-group" delay={gi * 60}>
-                <h3 className="cert-group-title">{g}</h3>
-                <ul className="cert-list">
-                  {items.map((c) => (
-                    <li key={c.name} className="cert-item">
-                      <span className="cert-name">
-                        <BadgeCheck size={15} className="cert-check" /> {c.name}
-                      </span>
-                      <span className="cert-meta">
-                        {c.issuer} · {c.date}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            )
-          })}
+          {generated.badges && generated.badges.length > 0 ? (
+            <Reveal as="ul" className="badge-grid">
+              {generated.badges.map((b, i) => (
+                <li key={b.id} className="badge-item" style={{ '--d': `${(i % 8) * 40}ms` }}>
+                  <a
+                    href={b.verifyUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={`${b.name} — verificar en Credly`}
+                  >
+                    <img src={b.image} alt={b.name} loading="lazy" width="88" height="88" />
+                    <span className="badge-name">{b.name}</span>
+                  </a>
+                </li>
+              ))}
+            </Reveal>
+          ) : (
+            ['AWS', 'Google Cloud', 'Otros'].map((g, gi) => {
+              const items = certifications.filter((c) => c.group === g)
+              if (items.length === 0) return null
+              return (
+                <Reveal key={g} className="cert-group" delay={gi * 60}>
+                  <h3 className="cert-group-title">{g}</h3>
+                  <ul className="cert-list">
+                    {items.map((c) => (
+                      <li key={c.name} className="cert-item">
+                        <span className="cert-name">
+                          <BadgeCheck size={15} className="cert-check" /> {c.name}
+                        </span>
+                        <span className="cert-meta">
+                          {c.issuer} · {c.date}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </Reveal>
+              )
+            })
+          )}
         </Section>
 
         <Section id="educacion" index="05" title="Educación" Icon={GraduationCap}>
