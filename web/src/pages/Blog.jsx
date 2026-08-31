@@ -1,8 +1,9 @@
 import { useEffect } from 'react'
 import { PenLine, Clock, CalendarDays, ArrowUpRight, Rss } from 'lucide-react'
 import { posts } from '../data/posts.js'
-import { profile } from '../data/profile.js'
+import { profile, ui } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
+import { useLang, useT } from '../i18n/LanguageContext.jsx'
 
 function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest }) {
   const [ref, visible] = useReveal()
@@ -18,58 +19,51 @@ function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest 
   )
 }
 
-function formatDate(iso) {
-  try {
-    return new Date(iso).toLocaleDateString('es-PE', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    })
-  } catch {
-    return iso
-  }
-}
-
-function EmptyState() {
-  return (
-    <Reveal className="blog-empty">
-      <div className="blog-empty-icon">
-        <PenLine size={26} strokeWidth={1.5} />
-      </div>
-      <h2>Próximamente</h2>
-      <p>
-        Estoy preparando artículos técnicos sobre ingeniería de datos, arquitectura
-        en AWS y lo que voy aprendiendo en el camino. Vuelve pronto.
-      </p>
-      <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="cta-button">
-        <Rss size={16} /> Sígueme en LinkedIn
-      </a>
-    </Reveal>
-  )
-}
-
 export default function Blog() {
+  const t = useT()
+  const { lang } = useLang()
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  const fmt = (iso) => {
+    try {
+      return new Date(iso).toLocaleDateString(lang === 'es' ? 'es-PE' : 'en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric',
+      })
+    } catch {
+      return iso
+    }
+  }
 
   return (
     <div className="page">
       <header className="page-head">
         <p className="hero-eyebrow reveal-hero" style={{ '--i': 0 }}>
-          <PenLine size={15} /> Notas técnicas
+          <PenLine size={15} /> {t(ui.labels.techNotes)}
         </p>
         <h1 className="page-title reveal-hero" style={{ '--i': 1 }}>
-          Blog
+          {t(ui.nav.blog)}
         </h1>
         <p className="page-lead reveal-hero" style={{ '--i': 2 }}>
-          Escritos sobre ingeniería de datos, nube y aprendizaje continuo.
+          {t(ui.labels.blogLead)}
         </p>
       </header>
 
       <section className="page-block">
         {posts.length === 0 ? (
-          <EmptyState />
+          <Reveal className="blog-empty">
+            <div className="blog-empty-icon">
+              <PenLine size={26} strokeWidth={1.5} />
+            </div>
+            <h2>{t(ui.labels.comingSoon)}</h2>
+            <p>{t(ui.labels.blogEmpty)}</p>
+            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="cta-button">
+              <Rss size={16} /> {t(ui.labels.followLinkedin)}
+            </a>
+          </Reveal>
         ) : (
           <ul className="post-list">
             {posts.map((post, i) => {
@@ -78,16 +72,10 @@ export default function Blog() {
                 ? { href: post.url, target: '_blank', rel: 'noreferrer' }
                 : {}
               return (
-                <Reveal
-                  as={Card}
-                  key={post.slug}
-                  className="post-card"
-                  delay={i * 70}
-                  {...linkProps}
-                >
+                <Reveal as={Card} key={post.slug} className="post-card" delay={i * 70} {...linkProps}>
                   <div className="post-meta">
                     <span>
-                      <CalendarDays size={13} /> {formatDate(post.date)}
+                      <CalendarDays size={13} /> {fmt(post.date)}
                     </span>
                     {post.readingMinutes && (
                       <span>
@@ -96,15 +84,15 @@ export default function Blog() {
                     )}
                   </div>
                   <h2 className="post-title">
-                    {post.title}
+                    {t(post.title)}
                     {post.url && <ArrowUpRight size={17} className="post-ext" />}
                   </h2>
-                  <p className="post-excerpt">{post.excerpt}</p>
+                  <p className="post-excerpt">{t(post.excerpt)}</p>
                   {post.tags?.length > 0 && (
                     <ul className="chips">
-                      {post.tags.map((t) => (
-                        <li key={t} className="chip chip-quiet">
-                          {t}
+                      {post.tags.map((tag) => (
+                        <li key={tag} className="chip chip-quiet">
+                          {tag}
                         </li>
                       ))}
                     </ul>

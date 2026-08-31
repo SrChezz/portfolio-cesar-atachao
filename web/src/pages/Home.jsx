@@ -24,9 +24,11 @@ import {
   education,
   certifications,
   extracurricular,
-} from '../data/profile.js'
+  ui,
+} from '../data/content.js'
 import generated from '../data/generated.json'
 import { useReveal } from '../hooks/useReveal.js'
+import { useT } from '../i18n/LanguageContext.jsx'
 
 function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest }) {
   const [ref, visible] = useReveal()
@@ -58,74 +60,71 @@ function Section({ id, index, title, Icon, note, children }) {
   )
 }
 
-function Hero() {
-  return (
-    <header className="hero">
-      <div className="hero-inner">
-        <img
-          className="hero-avatar reveal-hero"
-          style={{ '--i': 0 }}
-          src="/profile.jpg"
-          width="112"
-          height="112"
-          alt={`Foto de ${profile.name}`}
-          loading="eager"
-          decoding="async"
-        />
-        <p className="hero-eyebrow reveal-hero" style={{ '--i': 1 }}>
-          <MapPin size={15} strokeWidth={2} /> {profile.location}
-        </p>
-        <h1 className="hero-name reveal-hero" style={{ '--i': 2 }}>
-          {profile.name}
-        </h1>
-        <p className="hero-headline reveal-hero" style={{ '--i': 3 }}>
-          {profile.headline}
-        </p>
-        <p className="hero-summary reveal-hero" style={{ '--i': 4 }}>
-          {profile.summary}
-        </p>
-        <nav className="hero-links reveal-hero" style={{ '--i': 5 }} aria-label="Contacto">
-          <a href={`mailto:${profile.email}`}>
-            <Mail size={15} /> {profile.email}
-          </a>
-          <a href={`tel:${profile.phone.replace(/\s/g, '')}`}>
-            <Phone size={15} /> {profile.phone}
-          </a>
-          <a href={profile.links.github} target="_blank" rel="noreferrer">
-            <Code2 size={15} /> GitHub
-          </a>
-          <a href={profile.links.linkedin} target="_blank" rel="noreferrer">
-            <Contact size={15} /> LinkedIn
-          </a>
-          <a href={profile.links.credly} target="_blank" rel="noreferrer">
-            <Award size={15} /> Credly
-          </a>
-        </nav>
-      </div>
-    </header>
-  )
-}
-
-const SKILL_ICONS = { Tecnologías: Cpu, 'Cloud Computing': Cloud }
+const SKILL_ICONS = [Cpu, Cloud]
 
 export default function Home() {
+  const t = useT()
+
   return (
     <>
-      <Hero />
+      <header className="hero">
+        <div className="hero-inner">
+          <img
+            className="hero-avatar reveal-hero"
+            style={{ '--i': 0 }}
+            src="/profile.jpg"
+            width="112"
+            height="112"
+            alt={`${profile.name}`}
+            loading="eager"
+            decoding="async"
+          />
+          <p className="hero-eyebrow reveal-hero" style={{ '--i': 1 }}>
+            <MapPin size={15} strokeWidth={2} /> {t(profile.location)}
+          </p>
+          <h1 className="hero-name reveal-hero" style={{ '--i': 2 }}>
+            {profile.name}
+          </h1>
+          <p className="hero-headline reveal-hero" style={{ '--i': 3 }}>
+            {t(profile.headline)}
+          </p>
+          <p className="hero-summary reveal-hero" style={{ '--i': 4 }}>
+            {t(profile.summary)}
+          </p>
+          <nav className="hero-links reveal-hero" style={{ '--i': 5 }} aria-label="Contacto">
+            <a href={`mailto:${profile.email}`}>
+              <Mail size={15} /> {profile.email}
+            </a>
+            <a href={`tel:${profile.phone.replace(/\s/g, '')}`}>
+              <Phone size={15} /> {profile.phone}
+            </a>
+            <a href={profile.links.github} target="_blank" rel="noreferrer">
+              <Code2 size={15} /> GitHub
+            </a>
+            <a href={profile.links.linkedin} target="_blank" rel="noreferrer">
+              <Contact size={15} /> LinkedIn
+            </a>
+            <a href={profile.links.credly} target="_blank" rel="noreferrer">
+              <Award size={15} /> Credly
+            </a>
+          </nav>
+        </div>
+      </header>
+
       <main>
-        <Section id="experiencia" index="01" title="Experiencia" Icon={Briefcase}>
+        <Section id="experiencia" index="01" title={t(ui.sections.experience)} Icon={Briefcase}>
           <ol className="timeline">
             {experience.map((job, i) => (
-              <Reveal as="li" key={job.role + job.company} className="timeline-item" delay={i * 60}>
-                <div className="timeline-meta">{job.period}</div>
+              <Reveal as="li" key={job.company} className="timeline-item" delay={i * 60}>
+                <div className="timeline-meta">{t(job.period)}</div>
                 <div className="timeline-body">
-                  <h3>{job.role}</h3>
+                  <h3>{t(job.role)}</h3>
                   <p className="timeline-org">
-                    {job.company} · <span>{job.location}</span>
+                    {job.company} · <span>{t(job.location)}</span>
                   </p>
                   <ul>
                     {job.highlights.map((h, j) => (
-                      <li key={j}>{h}</li>
+                      <li key={j}>{t(h)}</li>
                     ))}
                   </ul>
                 </div>
@@ -134,14 +133,14 @@ export default function Home() {
           </ol>
         </Section>
 
-        <Section id="habilidades" index="02" title="Habilidades" Icon={Wrench}>
+        <Section id="habilidades" index="02" title={t(ui.sections.skills)} Icon={Wrench}>
           <div className="skills-grid">
             {skills.map((group, i) => {
-              const GIcon = SKILL_ICONS[group.category]
+              const GIcon = SKILL_ICONS[i]
               return (
-                <Reveal key={group.category} className="skill-group" delay={i * 80}>
+                <Reveal key={i} className="skill-group" delay={i * 80}>
                   <h3 className="skill-category">
-                    {GIcon && <GIcon size={15} strokeWidth={2} />} {group.category}
+                    {GIcon && <GIcon size={15} strokeWidth={2} />} {t(group.category)}
                   </h3>
                   <ul className="chips">
                     {group.items.map((item) => (
@@ -156,13 +155,13 @@ export default function Home() {
           </div>
         </Section>
 
-        <Section id="proyectos" index="03" title="Proyectos" Icon={FolderGit2}>
+        <Section id="proyectos" index="03" title={t(ui.sections.projects)} Icon={FolderGit2}>
           <div className="projects">
             {projects.map((p, i) => (
               <Reveal as="article" key={p.slug} className="project-card" delay={i * 80}>
-                <h3>{p.name}</h3>
-                {p.tagline && <p className="project-tagline">{p.tagline}</p>}
-                <p>{p.description}</p>
+                <h3>{t(p.name)}</h3>
+                {p.tagline && <p className="project-tagline">{t(p.tagline)}</p>}
+                <p>{t(p.description)}</p>
                 <ul className="chips">
                   {p.stack.map((s) => (
                     <li key={s} className="chip chip-quiet">
@@ -171,7 +170,7 @@ export default function Home() {
                   ))}
                 </ul>
                 <Link to={`/proyectos/${p.slug}`} className="project-link">
-                  Ver caso de estudio <ArrowUpRight size={16} className="arrow" />
+                  {t(ui.labels.caseStudy)} <ArrowUpRight size={16} className="arrow" />
                 </Link>
               </Reveal>
             ))}
@@ -181,12 +180,11 @@ export default function Home() {
         <Section
           id="certificaciones"
           index="04"
-          title="Certificaciones"
+          title={t(ui.sections.certifications)}
           Icon={BadgeCheck}
           note={
             <>
-              {(generated.badges?.length || certifications.length)} certificaciones
-              verificadas ·{' '}
+              {(generated.badges?.length || certifications.length)} {t(ui.labels.certsVerified)} ·{' '}
               <a href={profile.links.credly} target="_blank" rel="noreferrer">
                 Credly
               </a>
@@ -195,14 +193,9 @@ export default function Home() {
         >
           {generated.badges && generated.badges.length > 0 ? (
             <Reveal as="ul" className="badge-grid">
-              {generated.badges.map((b, i) => (
-                <li key={b.id} className="badge-item" style={{ '--d': `${(i % 8) * 40}ms` }}>
-                  <a
-                    href={b.verifyUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    title={`${b.name} — verificar en Credly`}
-                  >
+              {generated.badges.map((b) => (
+                <li key={b.id} className="badge-item">
+                  <a href={b.verifyUrl} target="_blank" rel="noreferrer" title={b.name}>
                     <img src={b.image} alt={b.name} loading="lazy" width="88" height="88" />
                     <span className="badge-name">{b.name}</span>
                   </a>
@@ -234,17 +227,17 @@ export default function Home() {
           )}
         </Section>
 
-        <Section id="educacion" index="05" title="Educación" Icon={GraduationCap}>
+        <Section id="educacion" index="05" title={t(ui.sections.education)} Icon={GraduationCap}>
           <ol className="timeline">
             {education.map((e, i) => (
               <Reveal as="li" key={e.institution} className="timeline-item" delay={i * 60}>
-                <div className="timeline-meta">{e.period}</div>
+                <div className="timeline-meta">{t(e.period)}</div>
                 <div className="timeline-body">
                   <h3>{e.institution}</h3>
-                  <p className="timeline-org">{e.degree}</p>
+                  <p className="timeline-org">{t(e.degree)}</p>
                   <ul>
                     {e.highlights.map((h, j) => (
-                      <li key={j}>{h}</li>
+                      <li key={j}>{t(h)}</li>
                     ))}
                   </ul>
                 </div>
@@ -253,13 +246,13 @@ export default function Home() {
           </ol>
         </Section>
 
-        <Section id="comunidad" index="06" title="Comunidad" Icon={Users}>
+        <Section id="comunidad" index="06" title={t(ui.sections.community)} Icon={Users}>
           <ol className="timeline">
             {extracurricular.map((x, i) => (
-              <Reveal as="li" key={x.role} className="timeline-item" delay={i * 60}>
-                <div className="timeline-meta">{x.period}</div>
+              <Reveal as="li" key={i} className="timeline-item" delay={i * 60}>
+                <div className="timeline-meta">{t(x.period)}</div>
                 <div className="timeline-body">
-                  <h3>{x.role}</h3>
+                  <h3>{t(x.role)}</h3>
                   <p className="timeline-org">{x.org}</p>
                 </div>
               </Reveal>

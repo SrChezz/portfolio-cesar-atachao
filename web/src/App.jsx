@@ -11,7 +11,8 @@ import Home from './pages/Home.jsx'
 import Projects from './pages/Projects.jsx'
 import Blog from './pages/Blog.jsx'
 import ProjectPage from './pages/ProjectPage.jsx'
-import { profile } from './data/profile.js'
+import { profile } from './data/content.js'
+import { useT } from './i18n/LanguageContext.jsx'
 
 /* Scrolls to a #hash target on the home route (e.g. /#proyectos). */
 function HashScroll() {
@@ -26,12 +27,13 @@ function HashScroll() {
 }
 
 function Footer() {
+  const t = useT()
   return (
     <footer className="footer">
       <span>
         &copy; {new Date().getFullYear()} {profile.name}
       </span>
-      <span className="footer-loc">{profile.location}</span>
+      <span className="footer-loc">{t(profile.location)}</span>
     </footer>
   )
 }

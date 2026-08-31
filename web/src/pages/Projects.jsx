@@ -1,9 +1,10 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight, Star, GitFork, FolderGit2, Code2 } from 'lucide-react'
-import { projects } from '../data/profile.js'
+import { ArrowUpRight, Star, FolderGit2, Code2 } from 'lucide-react'
+import { projects, ui } from '../data/content.js'
 import generated from '../data/generated.json'
 import { useReveal } from '../hooks/useReveal.js'
+import { useT } from '../i18n/LanguageContext.jsx'
 
 function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest }) {
   const [ref, visible] = useReveal()
@@ -19,7 +20,6 @@ function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest 
   )
 }
 
-// Language → accent dot color (a small, recognizable set).
 const LANG_COLOR = {
   Python: '#4b8bbe',
   JavaScript: '#e8a44c',
@@ -31,6 +31,7 @@ const LANG_COLOR = {
 }
 
 export default function Projects() {
+  const t = useT()
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
@@ -41,25 +42,24 @@ export default function Projects() {
     <div className="page">
       <header className="page-head">
         <p className="hero-eyebrow reveal-hero" style={{ '--i': 0 }}>
-          <FolderGit2 size={15} /> Portafolio de trabajo
+          <FolderGit2 size={15} /> {t(ui.labels.workPortfolio)}
         </p>
         <h1 className="page-title reveal-hero" style={{ '--i': 1 }}>
-          Proyectos
+          {t(ui.sections.projects)}
         </h1>
         <p className="page-lead reveal-hero" style={{ '--i': 2 }}>
-          Casos de estudio detallados y repositorios públicos en constante evolución.
+          {t(ui.labels.projectsLead)}
         </p>
       </header>
 
-      {/* Detailed case studies */}
       <section className="page-block">
-        <h2 className="block-title">Casos de estudio</h2>
+        <h2 className="block-title">{t(ui.labels.caseStudies)}</h2>
         <div className="projects">
           {projects.map((p, i) => (
             <Reveal as="article" key={p.slug} className="project-card" delay={i * 80}>
-              <h3>{p.name}</h3>
-              {p.tagline && <p className="project-tagline">{p.tagline}</p>}
-              <p>{p.description}</p>
+              <h3>{t(p.name)}</h3>
+              {p.tagline && <p className="project-tagline">{t(p.tagline)}</p>}
+              <p>{t(p.description)}</p>
               <ul className="chips">
                 {p.stack.map((s) => (
                   <li key={s} className="chip chip-quiet">
@@ -68,20 +68,19 @@ export default function Projects() {
                 ))}
               </ul>
               <Link to={`/proyectos/${p.slug}`} className="project-link">
-                Ver caso de estudio <ArrowUpRight size={16} className="arrow" />
+                {t(ui.labels.caseStudy)} <ArrowUpRight size={16} className="arrow" />
               </Link>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* Live GitHub repos */}
       <section className="page-block">
         <h2 className="block-title">
-          <Code2 size={20} strokeWidth={1.75} /> En GitHub
+          <Code2 size={20} strokeWidth={1.75} /> {t(ui.labels.onGithub)}
         </h2>
         <p className="section-note" style={{ marginTop: 0, marginBottom: 24 }}>
-          Repositorios públicos, sincronizados automáticamente en cada despliegue.
+          {t(ui.labels.reposSynced)}
         </p>
         <div className="repo-grid">
           {repos.map((r, i) => (
@@ -99,14 +98,11 @@ export default function Projects() {
                 <span className="repo-name">{r.name}</span>
                 <ArrowUpRight size={15} className="repo-ext" />
               </div>
-              <p className="repo-desc">{r.description || 'Sin descripción.'}</p>
+              <p className="repo-desc">{r.description || '—'}</p>
               <div className="repo-meta">
                 {r.language && (
                   <span className="repo-lang">
-                    <span
-                      className="lang-dot"
-                      style={{ background: LANG_COLOR[r.language] || '#8aa' }}
-                    />
+                    <span className="lang-dot" style={{ background: LANG_COLOR[r.language] || '#8aa' }} />
                     {r.language}
                   </span>
                 )}

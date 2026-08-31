@@ -20,10 +20,10 @@ import {
   BarChart3,
   CalendarClock,
 } from 'lucide-react'
-import { projectDetails } from '../data/profile.js'
+import { projectDetails, ui } from '../data/content.js'
 import { useReveal } from '../hooks/useReveal.js'
+import { useT } from '../i18n/LanguageContext.jsx'
 
-// Map icon names used in the data module to imported components (tree-shakeable).
 const ICON_MAP = {
   Database,
   Zap,
@@ -50,7 +50,6 @@ function Reveal({ children, delay = 0, as: Tag = 'div', className = '', ...rest 
   )
 }
 
-// Resolve a lucide icon by name from the explicit map, with a safe fallback.
 function DynIcon({ name, ...props }) {
   const Cmp = ICON_MAP[name] || Circle
   return <Cmp {...props} />
@@ -58,6 +57,7 @@ function DynIcon({ name, ...props }) {
 
 export default function ProjectPage() {
   const { slug } = useParams()
+  const t = useT()
   const project = projectDetails[slug]
 
   useEffect(() => {
@@ -67,9 +67,9 @@ export default function ProjectPage() {
   if (!project) {
     return (
       <div className="project-page">
-        <p className="section-note">Proyecto no encontrado.</p>
+        <p className="section-note">{t(ui.project.notFound)}</p>
         <Link to="/" className="back-link">
-          <ArrowLeft size={16} /> Volver al inicio
+          <ArrowLeft size={16} /> {t(ui.labels.back)}
         </Link>
       </div>
     )
@@ -78,49 +78,43 @@ export default function ProjectPage() {
   return (
     <article className="project-page">
       <Link to="/#proyectos" className="back-link reveal-hero" style={{ '--i': 0 }}>
-        <ArrowLeft size={16} /> Volver
+        <ArrowLeft size={16} /> {t(ui.labels.back)}
       </Link>
 
       <header className="project-hero">
         <p className="hero-eyebrow reveal-hero" style={{ '--i': 1 }}>
-          <Boxes size={15} /> Caso de estudio
+          <Boxes size={15} /> {t(ui.project.caseStudy)}
         </p>
         <h1 className="project-title reveal-hero" style={{ '--i': 2 }}>
-          {project.name}
+          {t(project.name)}
         </h1>
         <p className="project-subtitle reveal-hero" style={{ '--i': 3 }}>
-          {project.tagline}
+          {t(project.tagline)}
         </p>
         <div className="project-meta reveal-hero" style={{ '--i': 4 }}>
           <span>
             <Calendar size={14} /> {project.year}
           </span>
           <span>
-            <UserCog size={14} /> {project.role}
+            <UserCog size={14} /> {t(ui.project.role)}
           </span>
           <a href={project.repo} target="_blank" rel="noreferrer">
-            <Code2 size={14} /> Repositorio
+            <Code2 size={14} /> {t(ui.labels.viewRepo)}
           </a>
         </div>
         <p className="project-intro reveal-hero" style={{ '--i': 5 }}>
-          {project.intro}
+          {t(project.intro)}
         </p>
       </header>
 
-      {/* Architecture diagram */}
       <Reveal className="project-figure">
-        <img
-          src={project.architectureImage}
-          alt="Diagrama de arquitectura del pipeline en AWS"
-          loading="lazy"
-        />
-        <figcaption>Arquitectura general del pipeline en AWS</figcaption>
+        <img src={project.architectureImage} alt={t(ui.project.archCaption)} loading="lazy" />
+        <figcaption>{t(ui.project.archCaption)}</figcaption>
       </Reveal>
 
-      {/* Data flow */}
       <section className="project-block">
         <Reveal as="h2" className="block-title">
-          <ChevronsDown size={20} strokeWidth={1.75} /> Flujo de datos
+          <ChevronsDown size={20} strokeWidth={1.75} /> {t(ui.project.dataFlow)}
         </Reveal>
         <ol className="flow">
           {project.flow.map((step, i) => (
@@ -130,17 +124,16 @@ export default function ProjectPage() {
               </div>
               <div className="flow-body">
                 <h3>{step.title}</h3>
-                <p>{step.detail}</p>
+                <p>{t(step.detail)}</p>
               </div>
             </Reveal>
           ))}
         </ol>
       </section>
 
-      {/* Orchestration */}
       <section className="project-block">
         <Reveal as="h2" className="block-title">
-          <Workflow size={20} strokeWidth={1.75} /> Orquestación
+          <Workflow size={20} strokeWidth={1.75} /> {t(ui.project.orchestration)}
         </Reveal>
         <div className="orch-grid">
           {project.orchestration.map((o, i) => (
@@ -148,41 +141,34 @@ export default function ProjectPage() {
               <DynIcon name={o.icon} size={22} strokeWidth={1.75} />
               <div>
                 <h3>{o.label}</h3>
-                <p>{o.detail}</p>
+                <p>{t(o.detail)}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* Highlights */}
       <section className="project-block">
         <Reveal as="h2" className="block-title">
-          <Sparkles size={20} strokeWidth={1.75} /> Puntos clave
+          <Sparkles size={20} strokeWidth={1.75} /> {t(ui.project.highlights)}
         </Reveal>
         <ul className="highlight-list">
           {project.highlights.map((h, i) => (
             <Reveal as="li" key={i} delay={i * 60}>
-              <Sparkles size={15} className="hl-icon" /> {h}
+              <Sparkles size={15} className="hl-icon" /> {t(h)}
             </Reveal>
           ))}
         </ul>
       </section>
 
-      {/* Power BI */}
       <Reveal className="project-figure">
-        <img
-          src={project.powerBiImage}
-          alt="Modelo de datos en Power BI"
-          loading="lazy"
-        />
-        <figcaption>Modelo de datos conectado a Redshift en Power BI</figcaption>
+        <img src={project.powerBiImage} alt={t(ui.project.powerBiCaption)} loading="lazy" />
+        <figcaption>{t(ui.project.powerBiCaption)}</figcaption>
       </Reveal>
 
-      {/* Stack */}
       <section className="project-block">
         <Reveal as="h2" className="block-title">
-          <Boxes size={20} strokeWidth={1.75} /> Stack tecnológico
+          <Boxes size={20} strokeWidth={1.75} /> {t(ui.project.stack)}
         </Reveal>
         <Reveal as="ul" className="chips">
           {project.stack.map((s) => (
@@ -193,16 +179,15 @@ export default function ProjectPage() {
         </Reveal>
       </section>
 
-      {/* Repo structure */}
       <section className="project-block">
         <Reveal as="h2" className="block-title">
-          <FolderTree size={20} strokeWidth={1.75} /> Estructura del repositorio
+          <FolderTree size={20} strokeWidth={1.75} /> {t(ui.project.repoStructure)}
         </Reveal>
         <ul className="structure-list">
           {project.structure.map((s, i) => (
             <Reveal as="li" key={s.path} className="structure-item" delay={i * 40}>
               <code>{s.path}</code>
-              <span>{s.note}</span>
+              <span>{t(s.note)}</span>
             </Reveal>
           ))}
         </ul>
@@ -210,10 +195,10 @@ export default function ProjectPage() {
 
       <Reveal className="project-cta">
         <a href={project.repo} target="_blank" rel="noreferrer" className="cta-button">
-          <Code2 size={18} /> Ver el código en GitHub
+          <Code2 size={18} /> {t(ui.labels.viewCode)}
         </a>
         <Link to="/#proyectos" className="back-link">
-          <ArrowLeft size={16} /> Volver al portafolio
+          <ArrowLeft size={16} /> {t(ui.labels.backToPortfolio)}
         </Link>
       </Reveal>
     </article>
