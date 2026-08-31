@@ -16,7 +16,7 @@ export default function Nav() {
   return (
     <nav className="topnav" aria-label="Navegación principal">
       <Link to="/" className="topnav-brand">
-        <span className="brand-mark">CA</span>
+        <img className="brand-logo" src="/favicon.svg" alt="" width="30" height="30" />
         <span className="brand-name">Cesar Atachao</span>
       </Link>
       <div className="topnav-right">

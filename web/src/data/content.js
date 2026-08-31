@@ -99,11 +99,38 @@ export const experience = [
 export const skills = [
   {
     category: { es: 'Tecnologías', en: 'Technologies' },
-    items: ['Python', 'SQL Server', 'Oracle SQL', 'PySpark', 'Power BI', 'Docker', 'Linux', 'Networking', 'Git', 'Vue.js'],
+    items: [
+      'Python',
+      'SQL Server',
+      'Oracle SQL',
+      'PySpark',
+      'Power BI',
+      'Excel',
+      'Docker',
+      'Linux',
+      'Networking',
+      'CCNA',
+      'GitHub',
+      'Git',
+      'Vue.js',
+    ],
   },
   {
     category: { es: 'Cloud & Datos', en: 'Cloud & Data' },
-    items: ['AWS', 'Glue', 'Redshift', 'S3', 'Lambda', 'DMS', 'CloudFront', 'GCP', 'Azure'],
+    items: [
+      'AWS',
+      'AWS Glue',
+      'Amazon S3',
+      'Amazon Redshift',
+      'AWS Lambda',
+      'AWS DMS',
+      'Amazon EC2',
+      'CloudFront',
+      'Step Functions',
+      'EventBridge',
+      'GCP',
+      'Azure',
+    ],
   },
 ]
 

@@ -1020,6 +1020,13 @@ a:focus-visible,
   font-weight: 700;
 }
 
+.brand-logo {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+}
+
 .brand-name {
   font-size: 0.95rem;
 }
