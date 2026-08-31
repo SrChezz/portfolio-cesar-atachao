@@ -3,21 +3,22 @@
 
 export const profile = {
   name: 'Cesar Atachao',
-  headline: 'Analista de Datos & Desarrollador Cloud',
+  headline: 'Data Engineer · Cloud & Datos en AWS',
   location: 'Huancayo, Perú',
   email: 'cesaratachao@gmail.com',
   phone: '+51 985462186',
   links: {
-    website: 'https://d1uof5bak6tr0e.cloudfront.net',
+    website: 'https://portfolio-cesar-atachao.vercel.app',
     linkedin: 'https://linkedin.com/in/cesaratachao',
     github: 'https://github.com/srchezz',
     credly: 'https://www.credly.com/users/cesaratachao/badges',
   },
   summary:
-    'Profesional con 1 año y 9 meses de experiencia práctica en análisis de datos, ' +
-    'automatización y desarrollo de aplicaciones en la nube. Dominio de SQL y Python, ' +
-    'con una sólida formación en tecnología y conocimientos en computación en la nube. ' +
-    'Busco aplicar este conjunto de habilidades diversas en tecnologías cloud.',
+    'Data Engineer en Morris & Opazo (Partner AWS), especializado en el diseño y ' +
+    'operación de pipelines de datos y soluciones cloud sobre AWS. Sólida base en ' +
+    'análisis de datos, automatización con Python y SQL, respaldada por 6 ' +
+    'certificaciones AWS (incluida Data Engineer Associate) y Google Cloud. ' +
+    'Enfocado en construir arquitecturas de datos escalables, seguras y bien diseñadas.',
 }
 
 export const experience = [
@@ -27,7 +28,8 @@ export const experience = [
     location: 'En remoto · Jornada completa',
     period: 'Nov 2025 - Actualidad',
     highlights: [
-      'Ingeniería de datos sobre Amazon Web Services (AWS): diseño y operación de pipelines y soluciones cloud para clientes del partner.',
+      'Diseño y operación de pipelines de datos y soluciones cloud sobre AWS para proyectos de clientes del partner.',
+      'Trabajo con servicios de datos de AWS (Glue, Redshift, S3, Lambda) aplicando buenas prácticas de arquitectura y seguridad.',
     ],
   },
   {
@@ -36,7 +38,8 @@ export const experience = [
     location: 'Remoto',
     period: 'Abr 2025 - Actualidad',
     highlights: [
-      'Automatización de procesos de generación de informes usando Python para la limpieza, transformación de datos y la creación de visualizaciones en Power BI.',
+      'Automatización de la generación de informes con Python para limpieza y transformación de datos, reduciendo trabajo manual recurrente.',
+      'Creación de visualizaciones y dashboards en Power BI para la toma de decisiones.',
     ],
   },
   {
@@ -95,7 +98,7 @@ export const skills = [
 export const projects = [
   {
     name: 'Pipeline de Ingesta de Datos en AWS',
-    url: 'https://github.com/catachao/aws',
+    url: 'https://github.com/catachao/aws-data-ingestion-restart',
     description:
       'Implementé un pipeline de ingesta y transformación de datos en AWS utilizando RDS, DMS, Glue y Redshift, con visualización en Power BI y manejo de Slowly Changing Dimensions (SCD Tipo 2).',
     stack: ['RDS', 'Glue', 'PySpark', 'MySQL', 'Power BI'],
