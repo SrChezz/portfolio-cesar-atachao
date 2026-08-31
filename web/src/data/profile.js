@@ -22,6 +22,15 @@ export const profile = {
 
 export const experience = [
   {
+    role: 'Data Engineer',
+    company: 'Morris & Opazo (Partner AWS)',
+    location: 'En remoto · Jornada completa',
+    period: 'Nov 2025 - Actualidad',
+    highlights: [
+      'Ingeniería de datos sobre Amazon Web Services (AWS): diseño y operación de pipelines y soluciones cloud para clientes del partner.',
+    ],
+  },
+  {
     role: 'Practicante de Análisis de Datos',
     company: 'Universidad Continental',
     location: 'Remoto',

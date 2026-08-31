@@ -59,21 +59,31 @@ function Hero() {
     <header className="hero">
       <div className="hero-bg" aria-hidden="true" />
       <div className="hero-inner">
-        <p className="hero-eyebrow reveal-hero" style={{ '--i': 0 }}>
+        <img
+          className="hero-avatar reveal-hero"
+          style={{ '--i': 0 }}
+          src="/profile.jpg"
+          width="112"
+          height="112"
+          alt={`Foto de ${profile.name}`}
+          loading="eager"
+          decoding="async"
+        />
+        <p className="hero-eyebrow reveal-hero" style={{ '--i': 1 }}>
           <span className="blink">▹</span> {profile.location}
         </p>
-        <h1 className="hero-name reveal-hero" style={{ '--i': 1 }}>
+        <h1 className="hero-name reveal-hero" style={{ '--i': 2 }}>
           {profile.name}
         </h1>
-        <p className="hero-headline reveal-hero" style={{ '--i': 2 }}>
+        <p className="hero-headline reveal-hero" style={{ '--i': 3 }}>
           {profile.headline}
         </p>
-        <p className="hero-summary reveal-hero" style={{ '--i': 3 }}>
+        <p className="hero-summary reveal-hero" style={{ '--i': 4 }}>
           {profile.summary}
         </p>
         <nav
           className="hero-links reveal-hero"
-          style={{ '--i': 4 }}
+          style={{ '--i': 5 }}
           aria-label="Enlaces de contacto"
         >
           <a href={`mailto:${profile.email}`}>{profile.email}</a>
