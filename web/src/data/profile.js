@@ -97,13 +97,109 @@ export const skills = [
 
 export const projects = [
   {
+    slug: 'aws-data-ingestion',
     name: 'Pipeline de Ingesta de Datos en AWS',
+    tagline: 'Arquitectura de datos en tiempo real con SCD Tipo 2',
     url: 'https://github.com/catachao/aws-data-ingestion-restart',
     description:
       'Implementé un pipeline de ingesta y transformación de datos en AWS utilizando RDS, DMS, Glue y Redshift, con visualización en Power BI y manejo de Slowly Changing Dimensions (SCD Tipo 2).',
-    stack: ['RDS', 'Glue', 'PySpark', 'MySQL', 'Power BI'],
+    stack: ['RDS', 'DMS', 'Glue', 'PySpark', 'Redshift', 'S3', 'Power BI'],
   },
 ]
+
+// Deep-dive content for the dedicated project page.
+// Extracted from github.com/catachao/aws-data-ingestion-restart.
+export const projectDetails = {
+  'aws-data-ingestion': {
+    slug: 'aws-data-ingestion',
+    name: 'Pipeline de Ingesta de Datos en AWS',
+    tagline: 'Arquitectura de datos en tiempo real con Slowly Changing Dimensions (Tipo 2)',
+    repo: 'https://github.com/catachao/aws-data-ingestion-restart',
+    year: '2025',
+    role: 'Diseño e implementación end-to-end',
+    intro:
+      'Un pipeline de ingesta y transformación de datos sobre AWS que mueve datos desde ' +
+      'una base transaccional hasta un almacén analítico, con capas Bronze/Silver, ' +
+      'transformaciones ETL en PySpark y trazabilidad histórica mediante Slowly Changing ' +
+      'Dimensions (SCD Tipo 2). La orquestación es automática y el resultado se consume en Power BI.',
+    architectureImage: '/projects/aws-architecture.gif',
+    powerBiImage: '/projects/power-bi-diagram.png',
+    // End-to-end data flow.
+    flow: [
+      {
+        icon: 'Database',
+        title: 'Amazon RDS (MySQL)',
+        detail: 'Base de datos transaccional de origen. El esquema fuente se define con DDL en MySQL.',
+      },
+      {
+        icon: 'Zap',
+        title: 'AWS Lambda',
+        detail: 'Automatiza los disparadores que inician los procesos de migración.',
+      },
+      {
+        icon: 'ArrowLeftRight',
+        title: 'AWS DMS',
+        detail: 'Migra los datos desde RDS hacia Amazon S3 mediante un Database Migration Workflow.',
+      },
+      {
+        icon: 'Layers',
+        title: 'Amazon S3 (Bronze / Silver)',
+        detail: 'Almacenamiento por capas: datos crudos (bronze) y parcialmente transformados (silver).',
+      },
+      {
+        icon: 'Cog',
+        title: 'AWS Glue (PySpark)',
+        detail:
+          'Jobs ETL con job bookmarks y hashing SHA-2 para detección de cambios. ' +
+          'Transforma clientes, órdenes, detalles de órdenes y productos.',
+      },
+      {
+        icon: 'Warehouse',
+        title: 'Amazon Redshift',
+        detail:
+          'Data warehouse donde Stored Procedures aplican la lógica SCD Tipo 2, ' +
+          'preservando el histórico de cambios en las dimensiones.',
+      },
+      {
+        icon: 'BarChart3',
+        title: 'Power BI',
+        detail: 'Conectado a Redshift para reportes y dashboards analíticos.',
+      },
+    ],
+    orchestration: [
+      { icon: 'Workflow', label: 'AWS Step Functions', detail: 'Orquestación de los procesos ETL.' },
+      { icon: 'CalendarClock', label: 'Amazon EventBridge', detail: 'Disparo programado y basado en eventos.' },
+    ],
+    highlights: [
+      'Arquitectura por capas (Bronze / Silver) para separar datos crudos de datos procesados.',
+      'SCD Tipo 2 en Redshift vía Stored Procedures para trazabilidad histórica completa.',
+      'Detección incremental de cambios con job bookmarks y hashing SHA-2 en Glue.',
+      'Orquestación automática con Step Functions + EventBridge.',
+    ],
+    stack: [
+      'Amazon RDS',
+      'AWS DMS',
+      'AWS Lambda',
+      'AWS Glue',
+      'Amazon S3',
+      'Amazon Redshift',
+      'AWS Step Functions',
+      'AWS EventBridge',
+      'PySpark',
+      'Power BI',
+    ],
+    // Mirrors the repository layout.
+    structure: [
+      { path: 'glue-jobs/load_jobs/', note: 'Job de carga (orders) hacia la capa bronze.' },
+      { path: 'glue-jobs/transform_jobs/', note: 'ETL de customer, orders, order_details y product.' },
+      { path: 'lambda-function/', note: 'Función que dispara la migración.' },
+      { path: 'rds/', note: 'DDL del esquema fuente en MySQL.' },
+      { path: 'redshift/DDL/', note: 'Tablas, vistas y vista materializada del sales mart.' },
+      { path: 'redshift/SP/', note: 'Stored Procedures con lógica SCD Tipo 2.' },
+      { path: 'step-functions/', note: 'Definición de la máquina de estados de orquestación.' },
+    ],
+  },
+}
 
 export const education = [
   {
