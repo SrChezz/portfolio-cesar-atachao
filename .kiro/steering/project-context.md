@@ -40,8 +40,9 @@ Brand mark = `web/public/favicon.svg` (CA monogram), reused as the nav logo.
 - **Add a project case study** → add to `projects` + `projectDetails` in
   `content.js`; put images in `web/public/projects/`.
 - **Certs/repos refresh** automatically on build; or run `pnpm fetch-data`.
-- **Build/deploy:** `cd web && pnpm build` (runs the prebuild fetch), then
-  `vercel --prod`. Vercel root directory is `web`.
+- **Build/deploy:** deploy by pushing to `main` — Vercel auto-builds and deploys
+  (Git-connected; Root Directory `web`). See `.kiro/steering/deployment.md`.
+  Locally, verify with `cd web && pnpm build` (runs the prebuild fetch).
 - **Verify before deploy:** `pnpm build` must succeed; for infra, `cdk synth` + `pytest`.
 
 ## Guardrails / gotchas
