@@ -58,7 +58,7 @@ export const experience = [
     role: { es: 'Practicante de Análisis de Datos', en: 'Data Analysis Intern' },
     company: 'Universidad Continental',
     location: { es: 'Remoto', en: 'Remote' },
-    period: { es: 'Abr 2025 - Actualidad', en: 'Apr 2025 - Present' },
+    period: { es: 'Abr 2025 - Nov 2025', en: 'Apr 2025 - Nov 2025' },
     highlights: [
       {
         es: 'Automaticé un proceso que tomaba 5 días y lo reduje a horas, usando Python, SQL y Power BI.',
